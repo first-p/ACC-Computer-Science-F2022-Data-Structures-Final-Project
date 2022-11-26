@@ -1,6 +1,6 @@
 /************************************
 Name: Fred Butoma
-Final Project
+Final Project (From Assignment 6)
 
 Purpose: data.h is an abstract 
 data type used for to define vectors 
