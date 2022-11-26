@@ -14,6 +14,7 @@ in the graph class
 
  struct Data {
      int id;
+     string data;
      bool visited;
  };
 
