@@ -1,6 +1,7 @@
 /*********************
 Name: Fred Butoma
-Assignment 6
+From Assignment 6
+
 Purpose: linkedlist.h has all the prototype
 methods for the linked list class 
 *********************/

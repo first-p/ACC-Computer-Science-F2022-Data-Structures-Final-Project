@@ -1,11 +1,11 @@
-/* 
-  * File: data.h
-  * Author: Alex Katrompas
-  * 
-  * DO NOT MODIFY THIS FILE
-  * LEAVE THIS COMMENT HEADER HERE
-  */
+/************************************
+Name: Fred Butoma
+Final Project
 
+Purpose: data.h is an abstract 
+data type used for to define vectors 
+in the graph class 
+************************************/
  #ifndef DATA_H
  #define DATA_H
 

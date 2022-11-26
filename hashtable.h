@@ -1,6 +1,7 @@
 /*********************
 Name: Fred Butoma
-Assignment 7
+Final Project
+
 Purpose: hashtable.h contains all the
 prototypes and libraries for the hash table class
 *********************/
@@ -11,7 +12,7 @@ prototypes and libraries for the hash table class
 #include "linkedList.h"
 #include <iostream>
 
-#define HASHTABLESIZE 15
+#define NUMOFVECTORS 6
 
 using std::cout;
 using std::endl;
@@ -36,7 +37,7 @@ public:
 private:
   int hash(int);
   int count;
-  LinkedList *hashtable[HASHTABLESIZE];
+  LinkedList *hashtable[NUMOFVECTORS];
   void insert(LinkedList *, int, int, string *, bool *, int *);
 };
 

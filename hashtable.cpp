@@ -1,6 +1,7 @@
 /*********************
 Name: Fred Butoma
-Assignment 7
+Final Project
+
 Purpose: hashtable.cpp is the hash table class
 and includes all operations for manipulating a
 hash table object
@@ -12,13 +13,13 @@ hash table object
 Hashtable::Hashtable() {
     count = 0;
     // cout << "inside constructor" << endl;
-    for (int i = 0; i < HASHTABLESIZE; i++) {
+    for (int i = 0; i < NUMOFVECTORS; i++) {
         hashtable[i] = NULL;
     }
 }
 
 Hashtable::~Hashtable() {
-    for (int i = 0; i < HASHTABLESIZE; i++) {
+    for (int i = 0; i < NUMOFVECTORS; i++) {
         if (hashtable[i]) {
             delete hashtable[i];
             hashtable[i] = NULL;
@@ -84,7 +85,7 @@ int Hashtable::getCount(){
 }
 
 void Hashtable::printTable(){
-    for (int i = 0; i < HASHTABLESIZE; i++){
+    for (int i = 0; i < NUMOFVECTORS; i++){
         if (hashtable[i]){
                 cout << "Entry " << i << " : ";
                 hashtable[i]->printList(false);
@@ -99,6 +100,6 @@ void Hashtable::printTable(){
 
 
 int Hashtable::hash(int id){
-    return id % HASHTABLESIZE;
+    return id % NUMOFVECTORS;
 }
 
