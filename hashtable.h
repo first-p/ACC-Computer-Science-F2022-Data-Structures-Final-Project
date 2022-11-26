@@ -1,6 +1,6 @@
 /*********************
 Name: Fred Butoma
-Final Project (From Assignment 6)
+Final Project (From Assignment 7)
 
 Purpose: hashtable.h contains all the
 prototypes and libraries for the hash table class
