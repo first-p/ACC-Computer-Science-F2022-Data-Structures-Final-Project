@@ -1,11 +1,11 @@
-/*********************
+/**********************************************
 Name: Fred Butoma
 Final Project (From Assignment 6)
 
 Purpose: linkedlist.cpp is the linked list class and
 has all the operations required to manipulate a
 classic doubly linked list
-*********************/
+**********************************************/
 
 #include "linkedList.h"
 #include "data.h"

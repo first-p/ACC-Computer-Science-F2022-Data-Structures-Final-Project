@@ -1,11 +1,11 @@
-/*********************
+/**********************************************
 Name: Fred Butoma
 Final Project (From Assignment 7)
 
 Purpose: hashtable.cpp is the hash table class
 and includes all operations for manipulating a
 hash table object
-*********************/
+**********************************************/
 
 #include "hashtable.h"
 #include "linkedList.h"
@@ -100,6 +100,6 @@ void Hashtable::printTable(){
 
 
 int Hashtable::hash(int id){
-    return id % NUMOFVECTORS;
+    return id ;
 }
 

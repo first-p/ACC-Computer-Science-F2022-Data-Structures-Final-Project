@@ -53,3 +53,64 @@ traverseBF(linkedList graph, )
 
 
 */
+
+#include "graph.h"
+
+Graph::Graph(vector<vector<int>> edgeList) {
+    Hashtable h1;
+    for (int i = 0; i < edgeList.size(); i++){
+        int vectorId = edgeList[i][0];
+        string vectorData = std::to_string(vectorId);
+
+        h1.insertEntry(vectorId, &vectorData);
+    }
+    h1.printTable();
+}
+
+// Graph::~Graph() {
+    
+// }
+
+// bool Graph::hasVector(){
+//     return false;
+// }
+
+// bool Graph::hasPath(Hashtable *graph, int src, int dst, vector<int> visitedList){
+//     // bool arrived = false; 
+//     // bool visited = false; 
+//     // if (src == dst){
+//     //     arrived = true; 
+//     // }
+//     // else{
+//     //     for (int i = 0 ; i < visitedList.size(); i++){
+//     //         if (visitedList[i] == src){
+//     //             visited = true;
+//     //         }
+//     //     }
+//     //     if (!visited){
+//     //         visitedList.push_back(src);
+//     //     }
+         
+
+//     // }
+//     // return arrived;
+//     return false;
+
+    
+// }
+
+// void Graph::traverseDepthFirst(int sourceVectorId){
+
+// }
+
+// void Graph::traverseBreadthFirst(int sourceVectorId){
+
+// }
+
+// bool Graph::isEmpty(){
+// return false; 
+// }
+
+
+
+

@@ -1,10 +1,10 @@
-/*********************
+/**********************************************
 Name: Fred Butoma
 Final Project (From Assignment 6)
 
 Purpose: linkedlist.h has all the prototype
 methods for the linked list class 
-*********************/
+**********************************************/
 
 #ifndef LINKED_LIST_H
 #define LINKED_LIST_H
