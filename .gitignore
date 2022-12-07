@@ -3,6 +3,11 @@
 */
 
 #unignore what we want
-!*.cpp
-!*.h
+!data.h
+!linkedlist.cpp
+!linkedlist.h
+!graph.cpp
+!graph.h
+!main.cpp
+!main.h
 !.gitignore
