@@ -9,40 +9,39 @@ for the graph class
 #ifndef GRAPH_H
 #define GRAPH_H
 
-#include "hashtable.h"
-#include <iostream>
-#include <string>
-#include <vector>
-
-using std::cout;
-using std::endl;
-using std::vector;
+#include "linkedlist.h"
 
 class Graph{
     public:
-    //constructors
-    Graph(vector<vector<int>>);
+        //constructors
+        Graph();
 
-    //destructor 
-    ~Graph();
+        //destructor 
+        ~Graph();
 
-    //getters
-    bool hasVector();
-    bool hasPath(Hashtable*, int, int, vector<int>);
-    void traverseDepthFirst(int);
-    void traverseBreadthFirst(int);
-    bool isEmpty();
+        //getters
+        bool hasVector();
+        bool hasPath(int, int);
+        void traverseDepthFirst();
+        void traverseBreadthFirst();
+        void shortestPath(int);
+        bool isEmpty();
 
-    //setters
-    
+        void displayAdjacencyList();
 
+        //setters
+        bool addVertex(int, string *);
+        bool addEdge(int, int);
 
     private:
+        //attributes
+        int vCount;
+        LinkedList *vertices;
+        //helper methods 
+        Node *createNode(int, string *);
 
-    //attributes
-    int count;
-
-    //helper methods 
 };
 
+
 #endif // GRAPH_H
+
