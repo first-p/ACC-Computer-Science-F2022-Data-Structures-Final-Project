@@ -58,7 +58,69 @@ bool Graph::removeVertex(int vertexID){
     }
     return removed;
 }
+bool Graph::addEdge(int vertexID, int edgeID){
+    bool added = false;
+    Node *vertexCurrent = nullptr;
 
+    if (vertexList->getCount() > 0){
+        vertexCurrent = vertexList->getHead();
+//        cout << "inside addEdge and vertexCurrent is " << vertexCurrent << endl;
+    }
+
+   if (bothVerticesExist(vertexID, edgeID)){
+       //add edge
+       while (vertexCurrent){
+           if (vertexID == vertexCurrent->data.id){
+               string data = std::to_string(edgeID);
+               added = vertexCurrent->edgeList->addNode(edgeID, &data);
+           }
+               vertexCurrent = vertexCurrent->next;
+        }
+    }
+   if (added){
+       eCount++;
+   }
+   return added;
+}
+bool Graph::bothVerticesExist(int vertexID, int edgeID){
+//    cout << "inside bothExists()" << endl;
+    bool vertexExists = false;
+    bool edgeExists = false;
+    bool bothExist = false;
+    Node *vCurrent = nullptr;
+//    cout << "initializing vCurrent" << endl;
+    if (vertexList->getCount() > 0){
+        vCurrent = vertexList->getHead();
+    }
+//     cout << "vCurrent is " << vCurrent << endl;
+//    cout << "checking vertexExists" << endl;
+//     cout << "vertexList->getCOunt() is " << vertexList->getCount() << endl;
+    for (int i = 0 ; i < vertexList->getCount(); i++){
+//        (vCurrent && !vertexExists){
+       if (vCurrent && vertexID == vCurrent->data.id){
+            vertexExists = true;
+       }
+           vCurrent = vCurrent->next; 
+    }
+//    cout << "vertexExists() is " << vertexExists << endl;
+//     cout << "checking edgeExists" << endl;
+    vCurrent = vertexList->getHead();
+    for (int i = 0 ; i < vertexList->getCount(); i++){
+//        (vCurrent && !edgeExists){
+       if (edgeID == vCurrent->data.id){
+           edgeExists = true;
+       }
+           vCurrent = vCurrent->next;
+    }
+//    cout << "edgeExists() is " << edgeExists << endl;
+//     cout << "setting bothExists" << endl;
+    if (vertexExists && edgeExists){
+        bothExist = true;
+     }
+//     cout << "returning bothExists()" << endl;
+//     cout << "bothExists() is " << bothExist << endl;
+     return bothExist;
+}
 void Graph::displayAdjacencyList(){
     Node* vertexCurrent = vertexList->getHead();
     if (vertexList->isEmpty()){

@@ -73,6 +73,22 @@ int main() {
    cout << "Printing adjacency list.." << endl;
    g1.displayAdjacencyList();
    cout << endl;
+
+    cout << "adding edges to " << edgeList.size() << " vertices" << endl;
+
+    for (int i = 0 ; i < edgeList.size(); i++){
+        cout << "->adding " << edgeList[i].size() << " edges to vertex " << vertexList[i] << endl;
+        for (int j = 0; j < edgeList[i].size(); j++){
+            string data = std::to_string(edgeList[i][j]);
+            if (g1.addEdge(vertexList[i], edgeList[i][j])){
+                cout << "adding " << edgeList[i][j] << ": ..success" << endl;
+            }
+            else {
+                cout << "adding " << edgeList[i][j] << ": ..fail" << endl;
+            }
+        }
+     }
+    g1.displayAdjacencyList();
      
 
 
