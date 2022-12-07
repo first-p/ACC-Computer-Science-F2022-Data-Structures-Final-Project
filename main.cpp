@@ -56,6 +56,23 @@ int main() {
     cout << "Printing adjacency list.." << endl;
     g1.displayAdjacencyList();
     cout << endl;
+
+    //    REMOVE VERTICES  //
+
+   cout << "Removing vertices from graph.." << endl;
+   for (int i = 0 ; i < vertexList.size(); i++){
+        if (g1.removeVertex(vertexList[i])){
+            cout << "removing " << vertexList[i] << ": ..success" << endl;
+        }
+        else {
+            cout << "removing " << vertexList[i] << ": ..fail" << endl;
+        }
+   }
+   cout << endl;
+
+   cout << "Printing adjacency list.." << endl;
+   g1.displayAdjacencyList();
+   cout << endl;
      
 
 

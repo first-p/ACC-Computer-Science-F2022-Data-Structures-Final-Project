@@ -34,6 +34,30 @@ bool Graph::addVertex(int vertexID){
     }
     return added;
 }
+bool Graph::removeVertex(int vertexID){
+    bool removed = false;
+    bool edgeListCleared = false;
+    Node* vertex = nullptr;
+    vertex = vertexList->getHead();
+    while (vertex){
+        if (vertex->data.id == vertexID && vertex->edgeList->getCount() > 0){
+            edgeListCleared = vertex->edgeList->clearList();
+//            cout << "edgeListCleared set to " << edgeListCleared << ")  " << endl;
+//            cout << "vertex is " << vertex << ")  " << endl;
+//            cout << "vertex ID is " << vertex->data.id << ")  " << endl;
+//            cout << "vertex edgeList->count is " << vertex->edgeList->getCount() << ")  " << endl;
+        }
+            vertex = vertex->next;
+    }
+//    if (edgeListCleared){
+        removed = vertexList->deleteNode(vertexID);
+//        cout << "removed set to " << removed << ")  " << endl;
+//    }
+    if (removed) {
+        vCount--;
+    }
+    return removed;
+}
 
 void Graph::displayAdjacencyList(){
     Node* vertexCurrent = vertexList->getHead();
