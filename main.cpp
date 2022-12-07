@@ -89,6 +89,23 @@ int main() {
         }
      }
     g1.displayAdjacencyList();
+
+    //    REMOVE EDGES  //
+
+   cout << "removing all edges from " << edgeList.size() << " vertices" << endl;
+
+   for (int i = 0 ; i < edgeList.size(); i++){
+       cout << "->removing " << edgeList[i].size() << " edges from vertex " << vertexList[i] << endl;
+       for (int j = 0; j < edgeList[i].size(); j++){
+           cout << "removing " << edgeList[i][j] << endl;
+           if (g1.removeEdge(vertexList[i], edgeList[i][j])){
+               cout << "removing " << edgeList[i][j] << ": ..success" << endl;
+           }
+           else {
+               cout << "removing " << edgeList[i][j] << ": ..FAIL" << endl;
+           }
+       }g1.displayAdjacencyList();
+    }
      
 
 
