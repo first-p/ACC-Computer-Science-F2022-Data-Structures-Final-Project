@@ -1,14 +1,3 @@
-/**********************************************
-Name: Fred Butoma
-Final Project (From Assignment 6)
-
-Purpose: linkedlist.h has all the prototype
-methods for the linked list class 
-**********************************************/
-
-#ifndef LINKED_LIST_H
-#define LINKED_LIST_H
-
 #include "data.h"
 #include <iostream>
 
@@ -29,16 +18,27 @@ public:
   void printList(bool = false);
   int getCount();
   bool exists(int);
+
+
+  bool push(int, string *);
+  bool pull(Node *);
+  bool peek(Node *);
   bool isEmpty();
+
+  Node* getHead();
+
 
   // setters
   bool addNode(int, string *);
   bool deleteNode(int);
   bool clearList();
 
+
 private:
   // attributes
   Node *head;
+  Node *tail;
+
   // helper methods
   bool addHead(Node*);
   bool delHead(Node*);
@@ -48,8 +48,6 @@ private:
   bool delMiddle(Node*);
   bool isLast(Node*);
   bool delLast(Node*);
-  Node *createNode(int, string *);
+  Node *createNode(int, string *); //make sure you dont call this from graph
+
 };
-
-#endif // LINKED_LIST_H
-

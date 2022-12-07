@@ -1,18 +1,9 @@
-/**********************************************
-Name: Fred Butoma
-Final Project (From Assignment 6)
-
-Purpose: linkedlist.cpp is the linked list class and
-has all the operations required to manipulate a
-classic doubly linked list
-**********************************************/
-
-#include "linkedList.h"
-#include "data.h"
+#include "linkedlist.h"
 
 // constructor
 LinkedList::LinkedList() {
-  head = NULL;
+    head = nullptr;
+    tail = nullptr;
 }
 
 // destructor
@@ -29,14 +20,6 @@ bool LinkedList::addNode(int id, string *data) {
 
   Data empty;
   bool duplicate = getNode(id, &empty);
-  // bool duplicate = getNode(id, empty);
-
-  // if (duplicate){
-  //     delete newNode;
-  //     newNode = NULL;
-  //     return added;
-  //     cout << "caught the duplicate" << endl;
-  // }
 
   if (newNode && !duplicate){
     if (id > 0 && *data != "") {
@@ -64,9 +47,7 @@ bool LinkedList::addNode(int id, string *data) {
               current = current-> next;
             }
           }
-          // while (id != current->data.id && id > current->data.id && current->next != NULL) {
-          //   current = current-> next;
-          // }
+
         // add new node in between two existing nodes
           if (current->next != NULL){
             addMiddle(newNode, current);
@@ -122,6 +103,7 @@ Node* LinkedList::createNode(int id, string *data) {
     newNode->data.data = *data;
     newNode->next = NULL;
     newNode->prev = NULL;
+    newNode->edgeList = new LinkedList;
     return newNode;
   }
   else {
@@ -216,6 +198,9 @@ bool LinkedList::clearList() {
 ////////////////////////
 ////// getters/////////
 //////////////////////
+Node* LinkedList::getHead(){
+    return head;
+}
 bool LinkedList::getNode(int id, Data *emptyObj) {
   bool got = false;
   Node *current = head;
@@ -284,7 +269,8 @@ bool LinkedList::isEmpty(){
   }
   return empty;
 }
-
+ 
+ 
 bool LinkedList::exists(int id) {
   bool exists = false;
   Node *current = head;
