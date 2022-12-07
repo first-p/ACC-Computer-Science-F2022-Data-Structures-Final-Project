@@ -1,26 +1,19 @@
-/************************************
-Name: Fred Butoma
-Final Project (From Assignment 6)
+#include <vector>
+#include <string>
 
-Purpose: data.h is an abstract 
-data type used for to define vectors 
-in the graph class 
-************************************/
- #ifndef DATA_H
- #define DATA_H
+using std::string;
+using std::vector;
 
-#include "string"
- using std::string;
+class LinkedList;
 
- struct Data {
-     int id;
-     string data;
- };
+struct Data {
+    int id;
+    string data;
+};
 
- struct Node {
-     Data data;
-     Node *next;
-     Node *prev;
- };
-
- #endif /* DATA_H */
+struct Node {
+    Data data;
+    Node *next;
+    Node *prev;
+    LinkedList *edgeList;
+};
