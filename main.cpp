@@ -107,6 +107,86 @@ int main() {
        }g1.displayAdjacencyList();
     }
      
+    cout << "RANDOM OPS" << endl;
+    cout << "randomly adding/removing vectors and edges" << endl;
+    int choice = rand() % 6 + 1;
+    int randNum = rand() % 5 +1;
+
+    for (int i = 0 ; i < 10; i++){
+        switch(choice){
+        case 1:
+            cout << "adding vertex: " << randNum << endl;
+            if (g1.addVertex(randNum)){
+                cout << "adding " << randNum << ": ..success" << endl;
+            }
+            else {
+                cout << "adding " << randNum << ": ..fail" << endl;
+            }
+            g1.displayAdjacencyList();
+            cout << endl;
+            break;
+        case 2:
+            cout << "removing vertex: " << randNum << endl;
+            if (g1.removeVertex(randNum)){
+                cout << "removing " << randNum << ": ..success" << endl;
+            }
+            else {
+                cout << "removing " << randNum << ": ..fail" << endl;
+            }
+            g1.displayAdjacencyList();
+            cout << endl;
+            break;
+        case 3:
+            cout << "adding edge: " << randNum << " to vertex: " << randNum/(randNum/2) << endl;
+            if (g1.addEdge(randNum/(randNum/2), randNum)){
+                cout << "adding " << randNum << ": ..success" << endl;
+            }
+            else {
+                cout << "adding " << randNum << ": ..fail" << endl;
+            }
+            g1.displayAdjacencyList();
+            cout << endl;
+            break;
+        case 4:
+            cout << "adding edge: " << randNum << " to vertex: " << randNum/(randNum/2) << endl;
+            if (g1.addEdge(randNum/(randNum/2), randNum)){
+                cout << "adding " << randNum << ": ..success" << endl;
+            }
+            else {
+                cout << "adding " << randNum << ": ..fail" << endl;
+            }
+            g1.displayAdjacencyList();
+            cout << endl;
+            break;
+        case 5:
+            cout << "removing edge: " << randNum << " from vertex: " << randNum/(randNum/2) << endl;
+            if (g1.removeEdge(randNum/(randNum/2), randNum)){
+                cout << "removing " << randNum << ": ..success" << endl;
+            }
+            else {
+                cout << "removing " << randNum << ": ..FAIL" << endl;
+            }
+            g1.displayAdjacencyList();
+            cout << endl;
+            break;
+        case 6:
+            cout << "removing edge: " << randNum << " from vertex: " << randNum/(randNum/2) << endl;
+            if (g1.removeEdge(randNum/(randNum/2), randNum)){
+                cout << "removing " << randNum << ": ..success" << endl;
+            }
+            else {
+                cout << "removing " << randNum << ": ..FAIL" << endl;
+            }
+            g1.displayAdjacencyList();
+            cout << endl;
+            break;
+        }
+        choice = rand() % 6 + 1;
+        randNum = rand() % 10 +1;
+    }
+
+
+
 
 
 
