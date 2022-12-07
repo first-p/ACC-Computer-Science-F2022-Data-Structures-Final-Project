@@ -24,6 +24,16 @@ Graph::Graph(){
 Graph::~Graph() {
    vertexList->clearList();
 }
+bool Graph::addVertex(int vertexID){
+    bool added = false;
+    string vData = std::to_string(vertexID);
+    added = vertexList->addNode(vertexID, &vData);
+    if (added){
+
+        vCount++;
+    }
+    return added;
+}
 
 void Graph::displayAdjacencyList(){
     Node* vertexCurrent = vertexList->getHead();

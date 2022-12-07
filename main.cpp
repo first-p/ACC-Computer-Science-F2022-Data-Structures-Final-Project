@@ -40,6 +40,22 @@ int main() {
     cout << "Printing empty adjacency list.." << endl;
     g1.displayAdjacencyList();
     cout << endl;
+
+    cout << "Adding vertices to graph.." << endl;
+    for (int i = 0 ; i < vertexList.size(); i++){
+         string data = std::to_string(vertexList[i]);
+         if (g1.addVertex(vertexList[i])){
+             cout << "adding " << vertexList[i] << ": ..success" << endl;
+         }
+         else {
+             cout << "adding " << vertexList[i] << ": ..fail" << endl;
+         }
+     }
+    cout << endl;
+
+    cout << "Printing adjacency list.." << endl;
+    g1.displayAdjacencyList();
+    cout << endl;
      
 
 
