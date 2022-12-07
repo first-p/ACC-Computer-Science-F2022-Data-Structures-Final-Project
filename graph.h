@@ -1,9 +1,9 @@
 /**********************************************
 Name: Fred Butoma
-Final Project 
+Final Project
 
-Purpose: graph.h has all the prototypes 
-for the graph class 
+Purpose: graph.h has all the prototypes
+for the graph class
 **********************************************/
 
 #ifndef GRAPH_H
@@ -16,29 +16,46 @@ class Graph{
         //constructors
         Graph();
 
-        //destructor 
+        //destructor
         ~Graph();
 
         //getters
-        bool hasVector();
-        bool hasPath(int, int);
-        void traverseDepthFirst();
-        void traverseBreadthFirst();
-        void shortestPath(int);
-        bool isEmpty();
 
+        void shortestPath(int, int);
+
+        void traverseDepthFirst(int);
+        int traverseBreadthFirst(int);
+
+
+        bool isEmpty();
         void displayAdjacencyList();
+        int vertexCount();
+        int edgeCount();
 
         //setters
-        bool addVertex(int, string *);
+        bool addVertex(int);
+        bool removeVertex(int);
+
         bool addEdge(int, int);
+        bool removeEdge(int, int);
 
     private:
         //attributes
         int vCount;
-        LinkedList *vertices;
-        //helper methods 
+        int eCount;
+        LinkedList *vertexList;
+
+        //helper methods
         Node *createNode(int, string *);
+        bool bothVerticesExist(int, int);
+        bool hasVertex();
+        bool hasEdge();
+        Node* findVertexNode(int);
+        bool wasVisited(int, vector<int>);
+
+        int traverseDepthFirst(Node *, vector<int> &);
+//        void traverseDepthFirstRecursion(Node *, vector<int> &);
+
 
 };
 
