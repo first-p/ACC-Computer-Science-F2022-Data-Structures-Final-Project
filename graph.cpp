@@ -255,3 +255,65 @@ void Graph::displayAdjacencyList(){
         cout << "edge count: " << eCount << endl;
     }
 }
+
+void Graph::traverseDepthFirst(int startPoint){ //public
+    //reset DFTCost
+    DFTCost = 0;
+    //    cout << "inside DFT" << endl;
+    int edgeCost = -1;
+    vector<int> visitedList;
+//    cout << "created visitedList" << endl;
+
+//    cout << "thisVertex ID is " << thisVertex->data.id << endl;
+//    cout << "calling private DFT()" << endl;
+    edgeCost = traverseDepthFirst(startPoint, visitedList);
+    cout << "Depth-First Traveral" << endl;
+    for (int i = 0 ; i < visitedList.size(); i++){
+        cout << visitedList[i] << endl;
+    }
+    cout << "Cost: " << DFTCost << " edges." << endl;
+
+
+}
+int Graph::traverseDepthFirst(int startPoint, vector<int> &visitedList){ //should this be * instead of & ?
+    int edgeCost = -1;
+    Node *thisVertex = nullptr;
+//    cout << "inside private DFT" << endl;
+    if (findVertexNode(startPoint)){
+//        cout << "finding vertexNode()" << endl;
+        thisVertex = findVertexNode(startPoint);
+    }
+    if (thisVertex){
+//        cout << "thisVertex->ID: " << thisVertex->data.id << endl;
+        visitedList.push_back(thisVertex->data.id);
+//        cout << "visited list:";
+//        for (int i = 0 ; i < visitedList.size(); i++){
+//             cout << visitedList[i];
+//        }
+//        cout << endl;
+        DFTCost++;
+
+    }
+    Node *eCurrent = nullptr;
+    if (thisVertex->edgeList->getCount() > 0){
+        eCurrent = thisVertex->edgeList->getHead();
+//        cout << "thisVertex->edgeList->getHead is " << thisVertex->edgeList->getHead() << endl;
+    }
+
+    while (eCurrent){
+        if (wasVisited(eCurrent->data.id, visitedList)){
+            eCurrent = eCurrent->next;
+//            cout << "eCurrent is " << eCurrent << endl;
+        }
+        else if (eCurrent){
+//            cout << "edge is " << eCurrent->data.id << endl;
+            traverseDepthFirst(eCurrent->data.id, visitedList);
+            eCurrent = eCurrent->next;
+        }
+    }
+    if (edgeCost > -1){
+        edgeCost += 1;
+    }
+
+    return edgeCost;
+}
