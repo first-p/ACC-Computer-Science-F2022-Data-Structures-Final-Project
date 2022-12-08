@@ -1,1 +1,1 @@
-# An Undirect and Unweighted Graph Class
+# A Undirect and Unweighted Graph Class
