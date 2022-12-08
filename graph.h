@@ -16,53 +16,39 @@ class Graph{
     public:
         //constructors
         Graph();
-
         //destructor
         ~Graph();
 
         //getters
-
-        void shortestPath(int, int);
-
         void traverseDepthFirst(int);
         int traverseBreadthFirst(int);
+        // void shortestPath(int, int);
 
 
         bool isEmpty();
         void displayAdjacencyList();
-        int vertexCount();
-        int edgeCount();
 
         //setters
         bool addVertex(int);
         bool removeVertex(int);
-
         bool addEdge(int, int);
         bool removeEdge(int, int);
 
     private:
+        LinkedList *vertexList;
         //attributes
         int vCount;
         int eCount;
+
+        //traversal cost counters
         int DFTCost;
         int BFTCost;
-        LinkedList *vertexList;
 
         //helper methods
-        Node *createNode(int, string *);
         bool bothVerticesExist(int, int);
-        bool hasVertex();
-        bool hasEdge();
         Node* findVertexNode(int);
         bool wasVisited(int, vector<int>);
-
         int traverseDepthFirst(int, vector<int> &);
-//        void traverseDepthFirstRecursion(Node *, vector<int> &);
-        bool removeVertexFromEdgeLists(int);
-
-
 };
-
-
 #endif // GRAPH_H
 
