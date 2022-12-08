@@ -317,3 +317,69 @@ int Graph::traverseDepthFirst(int startPoint, vector<int> &visitedList){ //shoul
 
     return edgeCost;
 }
+int Graph::traverseBreadthFirst(int startPoint){ //public
+    //reset cost
+    BFTCost = 0;int edgeCost = -1;
+    vector<int> visitedList;
+    vector<int> queue;
+    queue.push_back(startPoint);
+
+    while (queue.size() > 0){
+        int current = -1; //1
+        if (queue[0]){ //2-to avoid undefined behavior
+            current = queue[0];
+        }
+        cout << current << endl;//1
+        queue.erase(queue.begin()); //2-pull from queue
+        visitedList.push_back(current);//push to queue
+        BFTCost++;
+
+        Node *thisEdge = findVertexNode(current)->edgeList->getHead();
+        while(thisEdge){
+            if (wasVisited(thisEdge->data.id, visitedList)){
+                thisEdge = thisEdge->next;
+            }
+            else if (thisEdge){
+                queue.push_back(thisEdge->data.id);
+                thisEdge = thisEdge->next;
+            }
+        }
+    }
+    cout << "Cost: " << BFTCost << " edges." << endl;
+    return BFTCost;
+}
+//bool Graph::shortestPath(int source, int destination){
+//    int costDFT =
+//}
+
+bool Graph::wasVisited(int vertexID, vector<int> visitedList){
+    bool visited = false;
+    for (int i = 0 ; i < visitedList.size(); i++){
+        if (vertexID == visitedList[i]){
+            visited = true;
+        }
+    }
+    return visited;
+}
+
+Node* Graph::findVertexNode(int vertexID){
+    Node * returnNode = nullptr;
+    Node *current = nullptr;
+    if (vertexList->getCount() > 0){
+        current = vertexList->getHead();
+    }
+    for (int i = 0 ; i < vertexList->getCount(); i++){
+        if (vertexID == current->data.id){
+            returnNode = current;
+        }
+            current = current->next;
+    }
+    return returnNode;
+}
+ bool Graph::isEmpty(){
+ bool isEmpty = true;
+ if (vertexList){
+     isEmpty = false;
+ }
+ return isEmpty;
+}
