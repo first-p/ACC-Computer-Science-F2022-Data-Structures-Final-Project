@@ -35,29 +35,96 @@ bool Graph::addVertex(int vertexID){
     return added;
 }
 bool Graph::removeVertex(int vertexID){
-    bool removed = false;
-    bool edgeListCleared = false;
-    Node* vertex = nullptr;
-    vertex = vertexList->getHead();
-    while (vertex){
-        if (vertex->data.id == vertexID && vertex->edgeList->getCount() > 0){
-            edgeListCleared = vertex->edgeList->clearList();
+    bool removedVertex = false;
+    bool removedAsEdge = false;
+    bool edgeListCleared = false; //for loop through entire list and delete the edge from all vertices edge lists first
+    Node* currentVertex = nullptr;
+    Node* currentEdge = nullptr;
+    vector <int> delList;
+    if (vertexList->getCount() > 0){
+        currentVertex = vertexList->getHead();
+    }
+    //clear its edgelist
+    while (currentVertex){
+        if (currentVertex->data.id == vertexID && currentVertex->edgeList->getCount() > 0){
+            eCount -= currentVertex->edgeList->getCount();
+            currentVertex->edgeList->clearList();
+            currentEdge = currentVertex->edgeList->getHead();
+//            for (int i = 0 ; i < currentVertex->edgeList->getCount(); i++){
+//                    if (currentEdge){
+//                        delList.push_back(currentEdge->data.id);
+//                        currentEdge = currentEdge->next;
+//                     }
+//                        currentVertex->edgeList->deleteNode(currentEdge->data.id);
+//                        eCount--;
+//                        cout << "removed 1 edge" << endl;
+//                    }
+                }
+//            }
+//                edgeListCleared = currentVertex->edgeList->clearList();
 //            cout << "edgeListCleared set to " << edgeListCleared << ")  " << endl;
 //            cout << "vertex is " << vertex << ")  " << endl;
 //            cout << "vertex ID is " << vertex->data.id << ")  " << endl;
 //            cout << "vertex edgeList->count is " << vertex->edgeList->getCount() << ")  " << endl;
+
+            //search through all edge lists and remove vertex as an edge from other vertices
+            else if (currentVertex->edgeList->getCount() > 0){
+                currentEdge = currentVertex->edgeList->getHead();
+                for (int i = 0 ; i < currentVertex->edgeList->getCount(); i++){
+                    if (currentEdge && currentEdge->data.id == vertexID){
+                        currentVertex->edgeList->deleteNode(vertexID);
+                        eCount--;
+                    }
+                    currentEdge = currentEdge->next;
+                }
+            }
+            currentVertex = currentVertex->next;
         }
-            vertex = vertex->next;
-    }
-//    if (edgeListCleared){
-        removed = vertexList->deleteNode(vertexID);
-//        cout << "removed set to " << removed << ")  " << endl;
-//    }
-    if (removed) {
+    //remove vertex
+
+        removedVertex = vertexList->deleteNode(vertexID);
+//        cout << "removed set to " << removedVertex  << endl;
+
+
+    if (removedVertex) {
         vCount--;
     }
-    return removed;
+//    cout << "about to remove it from edge lists" << endl;
+//    removedAsEdge = removeVertexFromEdgeLists(vertexID);
+//    cout << "removedAsEdge set to " << removedAsEdge  << endl;
+    return removedVertex;
 }
+
+//bool Graph:: removeVertexFromEdgeLists(int vertexID){
+//    bool removedEdge = false;
+//    Node* currentVertex = nullptr;
+//    Node* currentEdge = nullptr;
+//    if (vertexList->getCount() > 0){
+//        currentVertex = vertexList->getHead();
+//    }
+//    if (currentVertex->edgeList->getCount() > 0){
+//        currentEdge = currentVertex->edgeList->getHead();
+//    }
+//    for (int i = 0 ; i < vertexList->getCount(); i++){
+//        for (int j = 0 ; j < currentVertex->edgeList->getCount(); j++){
+//            if (vertexID == currentEdge->data.id){
+//                cout << "about to call deleteNode on current edge list" << endl;
+//                removedEdge = currentVertex->edgeList->deleteNode(vertexID);
+//                cout << "removedEdge set to " << removedEdge << endl;
+//             }
+//            cout << "outside if" << endl;
+//            cout << "calling currentEdge->next" << endl;
+//             currentEdge = currentEdge->next;
+//        }
+//        displayAdjacencyList();
+//        cout << "calling currentVertex->next" << endl;
+//        if (currentVertex->next){
+//            currentVertex = currentVertex->next;
+//        }
+//     }
+//    cout << "about to return" << endl;
+//    return removedEdge;
+//}
 bool Graph::addEdge(int vertexID, int edgeID){
     bool added = false;
     Node *vertexCurrent = nullptr;
@@ -82,43 +149,7 @@ bool Graph::addEdge(int vertexID, int edgeID){
    }
    return added;
 }
-bool Graph::removeEdge(int vertexID, int edgeID){
-    bool removed = false;
-    Node *vertexCurrent= nullptr;
-    if (vertexList->getCount() > 0){
-        vertexCurrent = vertexList->getHead();
-    }
 
-   if (bothVerticesExist(vertexID, edgeID)){
-//        cout << "bothExists is true " << endl;
-       //remove edge
-       for (int i = 0; i < vertexList->getCount(); i++){
-            if (vertexCurrent->data.id != vertexID){
-                vertexCurrent = vertexCurrent->next;
-            }
-
-       }
-//       cout << "vID is " << vertexID << " and vertexCurrent is " << vertexCurrent->data.id << endl;
-       for (int i = 0; i < vertexCurrent->edgeList->getCount(); i ++){
-//           cout << "edgeList->getCount() is " << vertexCurrent->edgeList->getCount() << endl;
-           if (vertexCurrent->edgeList && vertexID == vertexCurrent->data.id){
-                removed = vertexCurrent->edgeList->deleteNode(edgeID);
-//                cout << "removed is " << removed << endl;
-//                cout << "printing edge list" << endl;
-//                vertexCurrent->edgeList->printList();
-                cout << endl;
-           }
-//               cout << "vertexCurrent->next" << endl;
-               if (vertexCurrent->next){
-                   vertexCurrent = vertexCurrent->next;
-               }
-       }
-    }
-   if (removed){
-       eCount--;
-   }
-   return removed;
-}
 bool Graph::bothVerticesExist(int vertexID, int edgeID){
 //    cout << "inside bothExists()" << endl;
     bool vertexExists = false;
