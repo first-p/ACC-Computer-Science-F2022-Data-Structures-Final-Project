@@ -122,37 +122,26 @@ bool Graph::bothVerticesExist(int vertexID, int edgeID){
     bool edgeExists = false;
     bool bothExist = false;
     Node *vCurrent = nullptr;
-//    cout << "initializing vCurrent" << endl;
     if (vertexList->getCount() > 0){
         vCurrent = vertexList->getHead();
     }
-//     cout << "vCurrent is " << vCurrent << endl;
-//    cout << "checking vertexExists" << endl;
-//     cout << "vertexList->getCOunt() is " << vertexList->getCount() << endl;
+
     for (int i = 0 ; i < vertexList->getCount(); i++){
-//        (vCurrent && !vertexExists){
        if (vCurrent && vertexID == vCurrent->data.id){
             vertexExists = true;
        }
            vCurrent = vCurrent->next; 
     }
-//    cout << "vertexExists() is " << vertexExists << endl;
-//     cout << "checking edgeExists" << endl;
     vCurrent = vertexList->getHead();
     for (int i = 0 ; i < vertexList->getCount(); i++){
-//        (vCurrent && !edgeExists){
        if (edgeID == vCurrent->data.id){
            edgeExists = true;
        }
            vCurrent = vCurrent->next;
     }
-//    cout << "edgeExists() is " << edgeExists << endl;
-//     cout << "setting bothExists" << endl;
     if (vertexExists && edgeExists){
         bothExist = true;
      }
-//     cout << "returning bothExists()" << endl;
-//     cout << "bothExists() is " << bothExist << endl;
      return bothExist;
 }
 void Graph::displayAdjacencyList(){
