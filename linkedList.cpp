@@ -1,9 +1,16 @@
+/*********************
+Name: Fred Butoma
+Assignment 6
+Purpose: linkedlist.cpp is the linked list class and 
+has all the operations required to manipulate a
+classic doubly linked list
+*********************/
+
 #include "linkedlist.h"
 
 // constructor
 LinkedList::LinkedList() {
     head = nullptr;
-    tail = nullptr;
 }
 
 // destructor

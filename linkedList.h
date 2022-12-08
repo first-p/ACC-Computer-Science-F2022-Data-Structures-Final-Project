@@ -1,3 +1,10 @@
+/*********************
+Name: Fred Butoma
+Assignment 6
+Purpose: linkedlist.h has all the prototype
+methods for the linked list class 
+*********************/
+
 #include "data.h"
 #include <iostream>
 
@@ -18,15 +25,8 @@ public:
   void printList(bool = false);
   int getCount();
   bool exists(int);
-
-
-  bool push(int, string *);
-  bool pull(Node *);
-  bool peek(Node *);
-  bool isEmpty();
-
   Node* getHead();
-
+  bool isEmpty();
 
   // setters
   bool addNode(int, string *);
@@ -37,7 +37,6 @@ public:
 private:
   // attributes
   Node *head;
-  Node *tail;
 
   // helper methods
   bool addHead(Node*);
