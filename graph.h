@@ -10,6 +10,8 @@ for the graph class
 #define GRAPH_H
 
 #include "linkedlist.h"
+#include "stack.h"
+
 
 class Graph{
     public:
