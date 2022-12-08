@@ -43,6 +43,8 @@ class Graph{
         //attributes
         int vCount;
         int eCount;
+        int DFTCost;
+        int BFTCost;
         LinkedList *vertexList;
 
         //helper methods
@@ -53,8 +55,9 @@ class Graph{
         Node* findVertexNode(int);
         bool wasVisited(int, vector<int>);
 
-        int traverseDepthFirst(Node *, vector<int> &);
+        int traverseDepthFirst(int, vector<int> &);
 //        void traverseDepthFirstRecursion(Node *, vector<int> &);
+        bool removeVertexFromEdgeLists(int);
 
 
 };
