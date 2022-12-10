@@ -10,4 +10,6 @@
 !graph.h
 !main.cpp
 !main.h
+!queue.h
+!queue.cpp
 !.gitignore
