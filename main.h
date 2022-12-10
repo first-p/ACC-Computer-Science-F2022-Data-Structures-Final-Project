@@ -16,8 +16,11 @@ libraries for main.cpp
 
 #include "graph.h"
 
+#define OPERATIONS 16
+
 using std::cout;
 using std::endl;
 using std::string;
+
 
 #endif /* MAIN_H */
