@@ -21,22 +21,16 @@ class Graph{
         ~Graph();
 
         //getters
-
-        void shortestPath(int, int);
-
         void traverseDepthFirst(int);
         int traverseBreadthFirst(int);
 
 
         bool isEmpty();
         void displayAdjacencyList();
-        int vertexCount();
-        int edgeCount();
 
         //setters
         bool addVertex(int);
         bool removeVertex(int);
-
         bool addEdge(int, int);
         bool removeEdge(int, int);
         bool clearGraph();
@@ -51,17 +45,10 @@ class Graph{
         Queue *queue_;
 
         //helper methods
-        Node *createNode(int, string *);
         bool bothVerticesExist(int, int);
-        bool hasVertex();
-        bool hasEdge();
         Node* findVertexNode(int);
         bool wasVisited(int, vector<int>); //
         int traverseDepthFirst(int, vector<int> &);
-
-        bool removeVertexFromEdgeLists(int);
-
-
 };
 
 

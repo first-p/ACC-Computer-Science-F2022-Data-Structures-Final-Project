@@ -1,3 +1,11 @@
+/**********************************************
+Name: Fred Butoma
+Final Project
+
+Purpose: data.h is a header file that contains
+the Node structure that linked lists are made of
+**********************************************/
+
 #include <vector>
 #include <string>
 

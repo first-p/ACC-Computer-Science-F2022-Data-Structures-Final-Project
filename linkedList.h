@@ -1,3 +1,11 @@
+/**********************************************
+Name: Fred Butoma
+Final Project
+
+Purpose: linkedList.h has all the prototypes
+for the linkedList class used in the graph class
+**********************************************/
+
 #include "data.h"
 #include <iostream>
 

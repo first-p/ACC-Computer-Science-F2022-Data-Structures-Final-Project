@@ -1,3 +1,11 @@
+/**********************************************
+Name: Fred Butoma
+Final Project
+
+Purpose: linkedList.cpp has all the methods
+for the linkedList class used in the graph class
+**********************************************/
+
 #include "linkedlist.h"
 
 // constructor
